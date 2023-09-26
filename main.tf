@@ -123,6 +123,7 @@ resource "azurerm_linux_virtual_machine" "mtc-vm" {
     version   = "latest"
   }
 
+/*
   #To enable SSH once provisioned
   provisioner "local-exec" {
     command = templatefile("${var.host_os}-ssh-script.tpl", {
@@ -137,6 +138,7 @@ resource "azurerm_linux_virtual_machine" "mtc-vm" {
   provisioner "local-exec" {
     command = "az vm stop --name ${azurerm_linux_virtual_machine.mtc-vm.name} --resource-group ${azurerm_resource_group.mtc-rg.name}"
   }
+*/
 
   tags = {
     environment = "PROD"
