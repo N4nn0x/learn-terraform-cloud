@@ -9,7 +9,7 @@ terraform {
 }
 
 provider "azurerm" {
-  version = "=3.0.1"
+  features {}
 }
 
 resource "azurerm_resource_group" "mtc-rg" {
