@@ -9,8 +9,7 @@ terraform {
 }
 
 provider "azurerm" {
-  source = "hashicorp/azurerm"
-  features {}
+    features {}
 }
 
 resource "azurerm_resource_group" "mtc-rg" {
