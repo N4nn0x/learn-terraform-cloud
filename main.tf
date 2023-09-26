@@ -1,5 +1,5 @@
 terraform {
-  
+
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
@@ -8,8 +8,8 @@ terraform {
   }
 }
 
-provider "registry.terraform.io/hashicorp/azurerm" {
-    features {}
+provider "azurerm" {
+  version = "=3.0.1"
 }
 
 resource "azurerm_resource_group" "mtc-rg" {
