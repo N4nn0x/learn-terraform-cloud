@@ -8,7 +8,8 @@ terraform {
   }
 }
 
-provider {"registry.terraform.io/hashicorp/azurerm"
+provider "azurerm" {
+  source = "hashicorp/azurerm"
   features {}
 }
 
