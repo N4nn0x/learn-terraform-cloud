@@ -8,9 +8,7 @@ terraform {
   }
 }
 
-provider "azurerm" {
-  features {}
-}
+provider ["registry.terraform.io/hashicorp/azurerm"]
 
 resource "azurerm_resource_group" "mtc-rg" {
   name     = "mtc-resources"
