@@ -1,6 +1,5 @@
 terraform {
-  
-  required_providers {
+    required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
       version = "=3.0.1"
@@ -139,7 +138,7 @@ resource "azurerm_linux_virtual_machine" "mtc-vm" {
   }
 
   tags = {
-    environment = "PROD"
+    environment = "dev"
   }
 }
 
