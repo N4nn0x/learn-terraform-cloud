@@ -16,7 +16,7 @@ resource "azurerm_resource_group" "mtc-rg" {
   name     = "mtc-resources"
   location = "Australia East"
   tags = {
-    environment = "dev"
+    environment = "TEST"
   }
 }
 resource "azurerm_virtual_network" "mtc-vn" {
