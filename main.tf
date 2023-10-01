@@ -100,6 +100,11 @@ resource "azurerm_network_interface" "mtc-nic" {
   }
 }
 
+data "github_file" "public_key" {
+  repository = "N4nn0x/learn-terraform-cloud"    # Replace with your GitHub username and repository name
+  path       = "~/.ssh/mtcazurekey.pub"
+}
+
 resource "azurerm_linux_virtual_machine" "mtc-vm" {
   name                = "mtc-vm"
   resource_group_name = azurerm_resource_group.mtc-rg.name
@@ -114,7 +119,7 @@ resource "azurerm_linux_virtual_machine" "mtc-vm" {
 
   admin_ssh_key {
     username   = "adminuser"
-    public_key = file("~/.ssh/mtcazurekey.pub")
+    public_key = data.github_file.public_key.content
   }
 
   os_disk {
