@@ -100,7 +100,8 @@ resource "azurerm_network_interface" "mtc-nic" {
   }
 }
 
-data "github_file" "public_key" {
+data "integrations_github_repository_file" "public_key" {
+  owner = "hashicorp"
   repository = "N4nn0x/learn-terraform-cloud"    # Replace with your GitHub username and repository name
   path       = "~/.ssh/mtcazurekey.pub"
 }
