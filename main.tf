@@ -24,7 +24,7 @@ resource "azurerm_resource_group" "mtc-rg" {
   }
 }
 
-/*
+
 resource "azurerm_virtual_network" "mtc-vn" {
   name                = "mtc-network"
   resource_group_name = azurerm_resource_group.mtc-rg.name
@@ -58,11 +58,11 @@ resource "azurerm_network_security_rule" "mtc-dev-rule" {
   priority                    = 100
   direction                   = "Inbound"
   access                      = "Allow"
-  protocol                    = "*"
-  source_port_range           = "*"
-  destination_port_range      = "*"
-  source_address_prefix       = "*"
-  destination_address_prefix  = "*"
+  protocol                    = "Tcp"  # Set the protocol to TCP for SSH
+  source_port_range           = "*"    # Allow traffic from any source port
+  destination_port_range      = "22"   # Allow traffic only on port 22 (SSH)
+  source_address_prefix       = "*"    # Allow traffic from any source IP address
+  destination_address_prefix  = "*"    # Allow traffic to any destination IP address
   resource_group_name         = azurerm_resource_group.mtc-rg.name
   network_security_group_name = azurerm_network_security_group.mtc-sg.name
 }
@@ -99,7 +99,7 @@ resource "azurerm_network_interface" "mtc-nic" {
     environment = "dev"
   }
 }
-
+/*
 resource "azurerm_linux_virtual_machine" "mtc-vm" {
   name                = "mtc-vm"
   resource_group_name = azurerm_resource_group.mtc-rg.name
