@@ -100,9 +100,8 @@ resource "azurerm_network_interface" "mtc-nic" {
   }
 }
 
-data "integrations_github_repository_file" "public_key" {
-  repository = "N4nn0x/learn-terraform-cloud"    # Replace with your GitHub username and repository name
-  path       = "~/.ssh/mtcazurekey.pub"
+data "github_ssh_keys" "public_key" {
+  keys = "~/.ssh/mtcazurekey.pub"
 }
 
 resource "azurerm_linux_virtual_machine" "mtc-vm" {
