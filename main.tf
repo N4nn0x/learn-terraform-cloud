@@ -24,7 +24,7 @@ resource "azurerm_resource_group" "mtc-rg" {
   }
 }
 
-
+/*
 resource "azurerm_virtual_network" "mtc-vn" {
   name                = "mtc-network"
   resource_group_name = azurerm_resource_group.mtc-rg.name
@@ -99,7 +99,7 @@ resource "azurerm_network_interface" "mtc-nic" {
     environment = "dev"
   }
 }
-/*
+
 resource "azurerm_linux_virtual_machine" "mtc-vm" {
   name                = "mtc-vm"
   resource_group_name = azurerm_resource_group.mtc-rg.name
