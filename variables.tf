@@ -22,5 +22,5 @@ variable "host_os" {
 
 variable "ssh_public_key_path" {
   description = "Path to the locally stored SSH public key file"
-  default     = "~/.ssh/mtcazurekey.pub"  # Path to the locally fetched public key
+  default     = ".ssh/mtcazurekey.pub"  # Path to the locally fetched public key
 }
