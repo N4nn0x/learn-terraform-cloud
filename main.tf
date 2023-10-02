@@ -24,6 +24,7 @@ resource "azurerm_resource_group" "mtc-rg" {
   }
 }
 
+/*
 resource "azurerm_virtual_network" "mtc-vn" {
   name                = "mtc-network"
   resource_group_name = azurerm_resource_group.mtc-rg.name
@@ -98,12 +99,8 @@ resource "azurerm_network_interface" "mtc-nic" {
     environment = "dev"
   }
 }
-/*
-data "github_file" "ssh_public_key" {
-  repository = "N4nn0x/learn-terraform-cloud"  # Replace with your GitHub repository
-  path       = "~/.ssh/mtcazurekey.pub"  # Replace with the path to your public key file in the repo
-}
-*/
+
+
 resource "azurerm_linux_virtual_machine" "mtc-vm" {
   name                = "mtc-vm"
   resource_group_name = azurerm_resource_group.mtc-rg.name
@@ -157,3 +154,4 @@ output "public_ip_address" {
   value = "${azurerm_linux_virtual_machine.mtc-vm.name}: ${data.azurerm_public_ip.mtc-ip-data.ip_address}"
 }
 
+*/
