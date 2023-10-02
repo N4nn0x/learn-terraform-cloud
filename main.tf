@@ -114,7 +114,7 @@ resource "azurerm_linux_virtual_machine" "mtc-vm" {
 
   admin_ssh_key {
     username   = "adminuser"
-    public_key = https://raw.githubusercontent.com/N4nn0x/learn-terraform-cloud/main/ssh/mtcazurekey.pub
+    public_key = "https://raw.githubusercontent.com/N4nn0x/learn-terraform-cloud/main/ssh/mtcazurekey.pub"
   }
 
   os_disk {
