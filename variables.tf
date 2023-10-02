@@ -15,5 +15,7 @@ variable "ARM_TENANT_ID" {
 }
 
 variable "host_os" {
+  description = "The host operating system (e.g., linux or windows)"  
   type = string
+  default = "linux"
 }
