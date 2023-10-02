@@ -145,7 +145,7 @@ resource "azurerm_linux_virtual_machine" "mtc-vm" {
   }
 
   tags = {
-    environment = "test"
+    environment = "dev"
   }
 }
 
