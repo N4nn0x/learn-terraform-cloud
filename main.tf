@@ -140,9 +140,11 @@ resource "azurerm_linux_virtual_machine" "mtc-vm" {
   }
 
   #To STOP the VM once provisioned (will still incur charges)
-  provisioner "local-exec" {
-    command = "az vm stop --name ${azurerm_linux_virtual_machine.mtc-vm.name} --resource-group ${azurerm_resource_group.mtc-rg.name}"
-  }
+  inline_script {
+      script = <<-EOT
+        az vm stop --name mtc-vm --resource-group mtc-resources
+      EOT
+    }
 
   tags = {
     environment = "dev"
