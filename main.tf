@@ -24,7 +24,6 @@ resource "azurerm_resource_group" "mtc-rg" {
   }
 }
 
-
 resource "azurerm_virtual_network" "mtc-vn" {
   name                = "mtc-network"
   resource_group_name = azurerm_resource_group.mtc-rg.name
@@ -137,11 +136,6 @@ resource "azurerm_linux_virtual_machine" "mtc-vm" {
       identityfile = "~/.ssh/mtcazurekey"
     })
     interpreter = var.host_os == "windows" ? ["Powershell", "-Command"] : ["bash", "-c"]
-  }
-
-  #To STOP the VM once provisioned (will still incur charges)
-  provisioner "local-exec" {
-    command = "az vm stop --name ${azurerm_linux_virtual_machine.mtc-vm.name} --resource-group ${azurerm_resource_group.mtc-rg.name}"
   }
 
   tags = {
