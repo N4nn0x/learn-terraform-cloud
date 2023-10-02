@@ -134,7 +134,7 @@ resource "azurerm_linux_virtual_machine" "mtc-vm" {
     command = templatefile("${var.host_os}-ssh-script.tpl", {
       hostname     = self.public_ip_address,
       user         = "adminuser",
-      identityfile = ".ssh/mtcazurekey"
+      identityfile = "~/.ssh/mtcazurekey"
     })
     interpreter = var.host_os == "windows" ? ["Powershell", "-Command"] : ["bash", "-c"]
   }
