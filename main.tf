@@ -24,7 +24,7 @@ resource "azurerm_resource_group" "mtc-rg" {
   }
 }
 
-/*
+
 resource "azurerm_virtual_network" "mtc-vn" {
   name                = "mtc-network"
   resource_group_name = azurerm_resource_group.mtc-rg.name
@@ -114,7 +114,7 @@ resource "azurerm_linux_virtual_machine" "mtc-vm" {
 
   admin_ssh_key {
     username   = "adminuser"
-    public_key = file("~/.ssh/mtcazurekey.pub")
+    public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDqX/iaoZIhTAgG9pV8f6bJksdPMC7UMIwufWAW3Nfx41uOcHiWAxR3cXl6RYCNX+2a2U7qY+WGG72t6pqbdS8giNmacVdIz39gmEkg+zG1RjytkmOhyLBGICN3IvMzU+OBBL0HG20f45ftJIloddtJq+yc3A+vmIWgTqQ8QeR1ByTj9d474nuGEtBotPui8h4X4s6x0QkKos4qZgKQIiOitH4Zw3YpwVqoAw21Y/hHtHBIm/m3DqjYNse0usPss6RipLvK3tCZUKvlmQ8KWJSvq+iqPdMH16lmv22aQNlOKYrV550DU6HKSnwSy1RpijlT7agBVTPsE95/ezweWVsBHNFf0kX83tXbYYVaiOuIykt9UD4uPtsnoKmQDQMvkwPmHcvge8zDHArzPq/Safn83UHB/N4lAQXJjEqW0uuxXKsVz7XNkDbaesvf7Ab4+r7sAyzsLC7guVmc2b57zDnosbw8p+DrI6R0SD+JUXpQRH4yoNu58jvX856HZxWOeQM="
   }
 
   os_disk {
@@ -145,7 +145,7 @@ resource "azurerm_linux_virtual_machine" "mtc-vm" {
   }
 
   tags = {
-    environment = "test"
+    environment = "dev"
   }
 }
 
@@ -157,4 +157,4 @@ data "azurerm_public_ip" "mtc-ip-data" {
 output "public_ip_address" {
   value = "${azurerm_linux_virtual_machine.mtc-vm.name}: ${data.azurerm_public_ip.mtc-ip-data.ip_address}"
 }
-*/
+
