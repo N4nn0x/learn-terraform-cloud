@@ -24,7 +24,6 @@ resource "azurerm_resource_group" "mtc-rg" {
   }
 }
 
-
 resource "azurerm_virtual_network" "mtc-vn" {
   name                = "mtc-network"
   resource_group_name = azurerm_resource_group.mtc-rg.name
@@ -140,11 +139,10 @@ resource "azurerm_linux_virtual_machine" "mtc-vm" {
   }
 
   #To STOP the VM once provisioned (will still incur charges)
-  inline_script {
-      script = <<-EOT
-        az vm stop --name mtc-vm --resource-group mtc-resources
-      EOT
-    }
+  custom_data1 = <<-EOF
+    #!/bin/bash
+    az vm stop --name mtc-vm --resource-group mtc-resources
+    EOF
 
   tags = {
     environment = "dev"
