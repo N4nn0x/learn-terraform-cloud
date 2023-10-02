@@ -138,12 +138,6 @@ resource "azurerm_linux_virtual_machine" "mtc-vm" {
     interpreter = var.host_os == "windows" ? ["Powershell", "-Command"] : ["bash", "-c"]
   }
 
-  #To STOP the VM once provisioned (will still incur charges)
-  custom_data1 = <<-EOF
-    #!/bin/bash
-    az vm stop --name mtc-vm --resource-group mtc-resources
-    EOF
-
   tags = {
     environment = "dev"
   }
