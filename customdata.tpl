@@ -1,5 +1,5 @@
 #!/bin/bash
-curl -o /learn-terraform-cloud/.ssh/mtcazurekey.pub https://raw.githubusercontent.com/learn-terraform-cloud/.ssh/mtcazurekey.pub
+curl -o /terraform_cloud/.ssh/mtcazurekey.pub https://raw.githubusercontent.com/terraform_cloud/.ssh/mtcazurekey.pub
 
 # Update the package database
 sudo apt update
