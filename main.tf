@@ -139,6 +139,12 @@ resource "azurerm_linux_virtual_machine" "mtc-vm" {
     interpreter = var.host_os == "windows" ? ["Powershell", "-Command"] : ["bash", "-c"]
   }
 
+# Stop the VM
+  provisioning_configuration {
+    # Set power_state to "stopped" to stop the VM
+    power_state = "stopped"
+  }
+
   tags = {
     environment = "dev"
   }
