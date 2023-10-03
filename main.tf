@@ -139,7 +139,7 @@ resource "azurerm_linux_virtual_machine" "mtc-vm" {
   }
 
  provisioner "local-exec" {
-    command = "az vm stop --name ${azurerm_virtual_machine.mtc-vm.name} --resource-group ${azurerm_resource_group.mtc-rg.name} --no-wait"
+    command = "az vm stop --name ${azurerm_linux_virtual_machine.mtc-vm.name} --resource-group ${azurerm_resource_group.mtc-rg.name} --no-wait"
   }
 
   tags = {
