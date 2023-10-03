@@ -99,7 +99,6 @@ resource "azurerm_network_interface" "mtc-nic" {
   }
 }
 
-
 resource "azurerm_linux_virtual_machine" "mtc-vm" {
   name                = "mtc-vm"
   resource_group_name = azurerm_resource_group.mtc-rg.name
@@ -139,10 +138,8 @@ resource "azurerm_linux_virtual_machine" "mtc-vm" {
     interpreter = var.host_os == "windows" ? ["Powershell", "-Command"] : ["bash", "-c"]
   }
 
-# Stop the VM
-  provisioning_configuration {
-    # Set power_state to "stopped" to stop the VM
-    power_state = "stopped"
+ provisioner "local-exec" {
+    command = "az vm stop --name ${azurerm_virtual_machine.mtc-vm.name} --resource-group ${azurerm_resource_group.mtc-rg.name} --no-wait"
   }
 
   tags = {
