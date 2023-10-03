@@ -23,7 +23,7 @@ resource "azurerm_resource_group" "mtc-rg" {
     environment = "Dev"
   }
 }
-
+/*
 resource "azurerm_virtual_network" "mtc-vn" {
   name                = "mtc-network"
   resource_group_name = azurerm_resource_group.mtc-rg.name
@@ -138,11 +138,7 @@ resource "azurerm_linux_virtual_machine" "mtc-vm" {
     interpreter = var.host_os == "windows" ? ["Powershell", "-Command"] : ["bash", "-c"]
   }
 
- provisioner "local-exec" {
-    command = "az vm stop --name ${azurerm_linux_virtual_machine.mtc-vm.name} --resource-group ${azurerm_resource_group.mtc-rg.name} --no-wait"
-  }
-
-  tags = {
+tags = {
     environment = "dev"
   }
 }
@@ -155,3 +151,4 @@ data "azurerm_public_ip" "mtc-ip-data" {
 output "public_ip_address" {
   value = "${azurerm_linux_virtual_machine.mtc-vm.name}: ${data.azurerm_public_ip.mtc-ip-data.ip_address}"
 }
+*/
