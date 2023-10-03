@@ -138,11 +138,7 @@ resource "azurerm_linux_virtual_machine" "mtc-vm" {
     interpreter = var.host_os == "windows" ? ["Powershell", "-Command"] : ["bash", "-c"]
   }
 
- provisioner "local-exec" {
-    command = "az vm stop --name ${azurerm_linux_virtual_machine.mtc-vm.name} --resource-group ${azurerm_resource_group.mtc-rg.name} --no-wait"
-  }
-
-  tags = {
+tags = {
     environment = "dev"
   }
 }
