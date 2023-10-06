@@ -80,6 +80,7 @@ resource "azurerm_network_security_rule" "mtc-dev-rule-http" {
   network_security_group_name = azurerm_network_security_group.mtc-sg.name
 }
 
+/*
 resource "azurerm_network_security_rule" "mtc-dev-rule-HTTPS" {
   name                        = "mtc-dev-rule-https"
   priority                    = 102
@@ -93,6 +94,7 @@ resource "azurerm_network_security_rule" "mtc-dev-rule-HTTPS" {
   resource_group_name         = azurerm_resource_group.mtc-rg.name
   network_security_group_name = azurerm_network_security_group.mtc-sg.name
 }
+*/
 
 resource "azurerm_subnet_network_security_group_association" "mtc-sga" {
   subnet_id                 = azurerm_subnet.mtc-subnet.id
