@@ -15,7 +15,7 @@ provider "azurerm" {
   subscription_id = var.ARM_SUBSCRIPTION_ID
   tenant_id       = var.ARM_TENANT_ID
 }
-/*
+
 resource "azurerm_resource_group" "mtc-rg" {
   name     = "mtc-resources"
   location = "Australia East"
@@ -74,6 +74,20 @@ resource "azurerm_network_security_rule" "mtc-dev-rule-http" {
   protocol                    = "Tcp"  # Set the protocol to TCP for HTTP
   source_port_range           = "*"    # Allow traffic from any source port
   destination_port_range      = "80"   # Allow traffic only on port 80 (HTTP)
+  source_address_prefix       = "*"    # Allow traffic from any source IP address
+  destination_address_prefix  = "*"    # Allow traffic to any destination IP address
+  resource_group_name         = azurerm_resource_group.mtc-rg.name
+  network_security_group_name = azurerm_network_security_group.mtc-sg.name
+}
+
+resource "azurerm_network_security_rule" "mtc-dev-rule-HTTPS" {
+  name                        = "mtc-dev-rule-https"
+  priority                    = 102
+  direction                   = "Inbound"
+  access                      = "Allow"
+  protocol                    = "Tcp"  # Set the protocol to TCP for HTTP
+  source_port_range           = "*"    # Allow traffic from any source port
+  destination_port_range      = "443"   # Allow traffic only on port 443 (HTTPS)
   source_address_prefix       = "*"    # Allow traffic from any source IP address
   destination_address_prefix  = "*"    # Allow traffic to any destination IP address
   resource_group_name         = azurerm_resource_group.mtc-rg.name
@@ -166,4 +180,4 @@ output "public_ip_address" {
   value = "${azurerm_linux_virtual_machine.mtc-vm.name}: ${data.azurerm_public_ip.mtc-ip-data.ip_address}"
 }
 
-*/
+
