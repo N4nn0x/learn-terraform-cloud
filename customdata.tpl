@@ -27,5 +27,5 @@ sudo systemctl enable docker
 sudo docker run -d -p 80:80 nginx
 
 # Get HTML site from github repo and store in /var/www/html
-curl -o /var/www/html https://github.com/N4nn0x/terraform_cloud/blob/N4nn0x-patch-1/containerfiles/landing.html
+curl -o /var/www/html https://raw.githubusercontent.com/terraform_cloud/containerfiles/landing.html
 
