@@ -52,7 +52,7 @@ resource "azurerm_network_security_group" "mtc-sg" {
   }
 }
 
-resource "azurerm_network_security_rule" "mtc-dev-rule" {
+resource "azurerm_network_security_rule" "mtc-dev-rule-ssh" {
   name                        = "mtc-dev-rule"
   priority                    = 100
   direction                   = "Inbound"
@@ -60,6 +60,20 @@ resource "azurerm_network_security_rule" "mtc-dev-rule" {
   protocol                    = "Tcp"  # Set the protocol to TCP for SSH
   source_port_range           = "*"    # Allow traffic from any source port
   destination_port_range      = "22"   # Allow traffic only on port 22 (SSH)
+  source_address_prefix       = "*"    # Allow traffic from any source IP address
+  destination_address_prefix  = "*"    # Allow traffic to any destination IP address
+  resource_group_name         = azurerm_resource_group.mtc-rg.name
+  network_security_group_name = azurerm_network_security_group.mtc-sg.name
+}
+
+resource "azurerm_network_security_rule" "mtc-dev-rule-http" {
+  name                        = "mtc-dev-rule-http"
+  priority                    = 101
+  direction                   = "Inbound"
+  access                      = "Allow"
+  protocol                    = "Tcp"  # Set the protocol to TCP for HTTP
+  source_port_range           = "*"    # Allow traffic from any source port
+  destination_port_range      = "80"   # Allow traffic only on port 80 (HTTP)
   source_address_prefix       = "*"    # Allow traffic from any source IP address
   destination_address_prefix  = "*"    # Allow traffic to any destination IP address
   resource_group_name         = azurerm_resource_group.mtc-rg.name
