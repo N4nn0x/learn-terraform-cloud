@@ -1,5 +1,5 @@
 #!/bin/bash
-curl -o /terraform_cloud/.ssh/mtcazurekey.pub https://raw.githubusercontent.com/terraform_cloud/.ssh/mtcazurekey.pub
+#curl -o /terraform_cloud/.ssh/mtcazurekey.pub https://raw.githubusercontent.com/terraform_cloud/.ssh/mtcazurekey.pub
 
 # Update the package database
 sudo apt update
@@ -27,5 +27,5 @@ sudo systemctl enable docker
 sudo docker run -d -p 80:80 nginx
 
 # Get HTML site from github repo and store in /var/www/html
-curl -o /var/www/html https://github.com/N4nn0x/terraform_cloud/blob/main/containerfiles/landing.html
+curl -o /var/www/html https://raw.githubusercontent.com/terraform_cloud/containerfiles/landing.html
 
