@@ -23,5 +23,9 @@ sudo apt install -y docker-ce docker-ce-cli containerd.io
 sudo systemctl start docker
 sudo systemctl enable docker
 
-# Display Docker version to verify installation
-sudo docker --version
+# Run the nginx container
+sudo docker run -d -p 80:80 nginx
+
+# Get HTML site from github repo and store in /usr/share/nginx/html/
+curl -o /usr/share/nginx/html/ https://raw.githubusercontent.com/terraform_cloud/containerfiles/landing.html
+
