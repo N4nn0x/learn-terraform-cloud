@@ -27,5 +27,5 @@ sudo systemctl enable docker
 sudo docker run -d -p 80:80 nginx
 
 # Get HTML site from github repo and store in /usr/share/nginx/html/
-curl -o /usr/share/nginx/html/ https://raw.githubusercontent.com/terraform_cloud/containerfiles/landing.html
+curl -o /var/www/html https://raw.githubusercontent.com/terraform_cloud/containerfiles/landing.html
 
