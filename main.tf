@@ -16,7 +16,6 @@ provider "azurerm" {
   tenant_id       = var.ARM_TENANT_ID
 }
 
-/*
 resource "azurerm_resource_group" "mtc-rg" {
   name     = "mtc-resources"
   location = "Australia Central"
@@ -182,5 +181,3 @@ data "azurerm_public_ip" "mtc-ip-data" {
 output "public_ip_address" {
   value = "${azurerm_linux_virtual_machine.mtc-vm.name}: ${data.azurerm_public_ip.mtc-ip-data.ip_address}"
 }
-
-*/
