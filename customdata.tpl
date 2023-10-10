@@ -24,7 +24,21 @@ sudo systemctl start docker
 sudo systemctl enable docker
 
 # Run the nginx container
-sudo docker run -d -p 80:80 nginx
+sudo docker run -d -p 80:80 --name maersk nginx
+
+# Login to the nginx container
+sudo docker exec -it maersk /bin/bash
+
+# Create the /data/www directory and place the HTML there
+mkdir -p /data/www
+curl -o /data/www/index.html https://raw.githubusercontent.com/terraform_cloud/containerfiles/index.html
+
+# Create the /data/images directory and place the HTML Images there
+mkdir /data/images
+curl -o /data/www/index.html https://raw.githubusercontent.com/terraform_cloud/containerfiles/index.html
+
+# Replace the configuration file with the updated info?
+
 
 # Get HTML site from github repo and store in /var/www/html
 #curl -o /usr/share/nginx/html/index.html https://raw.githubusercontent.com/terraform_cloud/containerfiles/index.html
