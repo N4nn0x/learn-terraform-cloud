@@ -37,8 +37,11 @@ curl -o /data/www/index.html https://raw.githubusercontent.com/terraform_cloud/c
 mkdir /data/images
 curl -o /data/images/lab_diagram.png https://raw.githubusercontent.com/terraform_cloud/containerfiles/lab_diagram.png
 
-# Replace the configuration file with the updated info?
+# Replace the configuration file with the updated info
+curl -o /etc/nginx/conf.d/default.conf https://raw.githubusercontent.com/terraform_cloud/containerfiles/default.conf
 
+# To apply the new configuration, start nginx if it is not yet started or send the reload signal to the nginx’s master process
+nginx -s reload
 
 # Get HTML site from github repo and store in /var/www/html
 #curl -o /usr/share/nginx/html/index.html https://raw.githubusercontent.com/terraform_cloud/containerfiles/index.html
