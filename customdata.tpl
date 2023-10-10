@@ -35,7 +35,7 @@ curl -o /data/www/index.html https://raw.githubusercontent.com/terraform_cloud/c
 
 # Create the /data/images directory and place the HTML Images there
 mkdir /data/images
-curl -o /data/www/index.html https://raw.githubusercontent.com/terraform_cloud/containerfiles/index.html
+curl -o /data/images/lab_diagram.png https://raw.githubusercontent.com/terraform_cloud/containerfiles/lab_diagram.png
 
 # Replace the configuration file with the updated info?
 
