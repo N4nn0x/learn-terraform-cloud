@@ -23,10 +23,7 @@ sudo apt install -y docker-ce docker-ce-cli containerd.io
 sudo systemctl start docker
 sudo systemctl enable docker
 
-# Because the container is on a Private repo, we must login first
-sudo docker login
-
-# Run the homelab container image
+# Run the lab container image
 sudo docker run -d -p 80:80 --name nano nanogk/dockerrepo:lab
 
 # To access a container:
