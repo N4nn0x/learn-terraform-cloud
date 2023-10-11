@@ -1,0 +1,13 @@
+To modify the HTML we recreate the image and upload it to the repo
+
+1) Modify your HTML file as needed on your local machine.
+
+2) Build a new Docker image with the updated HTML file using your existing Dockerfile. 
+sudo docker build -t docker_image:lab .
+
+3) Tag it
+sudo docker tag docker_image:lab nanogk/docker_image:lab
+
+4) Upload to private repo
+sudo docker push nanogk/docker_image:lab
+

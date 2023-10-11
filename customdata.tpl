@@ -23,10 +23,8 @@ sudo apt install -y docker-ce docker-ce-cli containerd.io
 sudo systemctl start docker
 sudo systemctl enable docker
 
-# Run the nginx container
-sudo docker run -d -p 80:80 nginx
+# Run the homelab container image
+sudo docker run -d -p 80:80 --name nano nanogk/dockerrepo:lab
 
-# Get HTML site from github repo and store in /var/www/html
-#curl -o /usr/share/nginx/html/index.html https://raw.githubusercontent.com/terraform_cloud/containerfiles/index.html
-
-
+# To access a container:
+# sudo docker exec -it nano /bin/bash
