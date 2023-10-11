@@ -23,8 +23,8 @@ sudo apt install -y docker-ce docker-ce-cli containerd.io
 sudo systemctl start docker
 sudo systemctl enable docker
 
-# Run the nginx container
-# sudo docker run -d -p 80:80 --name maersk nginx
+# Run the homelab container image
+sudo docker run -d -p 80:80 --name nano nanogk/dockerrepo:homelab
 
 # Login to the nginx container
 # sudo docker exec -it maersk /bin/bash
