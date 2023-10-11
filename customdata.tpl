@@ -23,8 +23,14 @@ sudo apt install -y docker-ce docker-ce-cli containerd.io
 sudo systemctl start docker
 sudo systemctl enable docker
 
+# Because the container is on a Private repo, we must login first
+sudo docker login
+
 # Run the homelab container image
 sudo docker run -d -p 80:80 --name nano nanogk/dockerrepo:lab
 
 # To access a container:
 # sudo docker exec -it nano /bin/bash
+#
+# Location of html in container: /usr/share/nginx/html
+# src="https://github.com/N4nn0x/terraform_cloud/blob/N4nn0x-patch-1/containerfiles/lab_diagram.png?raw=true"
