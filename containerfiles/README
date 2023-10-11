@@ -11,3 +11,20 @@ sudo docker tag docker_image:lab nanogk/docker_image:lab
 4) Upload to private repo
 sudo docker push nanogk/docker_image:lab
 
+
+
+
+Dockerfile to create image:
+# Use the official Nginx base image
+FROM nginx
+# Copy your HTML and other files into the container
+COPY index.html /usr/share/nginx/html/
+
+Build and Push to docker repo:
+1) login to docker via cli: docker login
+2) Docker Build: sudo docker build -t nanogk/dockerrepo:lab .
+3) Docker push: sudo docker push nanogk/dockerrepo:lab
+
+
+
+x) tag the image: sudo docker tag docker_image:lab nanogk/dockerrepo:lab
