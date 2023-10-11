@@ -24,21 +24,7 @@ sudo systemctl start docker
 sudo systemctl enable docker
 
 # Run the homelab container image
-sudo docker run -d -p 80:80 --name nano nanogk/dockerrepo:homelab
+sudo docker run -d -p 80:80 --name nano nanogk/dockerrepo:lab
 
-# Login to the nginx container
-# sudo docker exec -it maersk /bin/bash
-
-# Copy HTML into container
-# curl -o /usr/share/nginx/html/index.html https://raw.githubusercontent.com/terraform_cloud/containerfiles/index.html
-
-# Create the XXXX directory and place the HTML Images there
-# curl -o /data/images/lab_diagram.png https://raw.githubusercontent.com/terraform_cloud/containerfiles/lab_diagram.png
-
-# To apply the new configuration, start nginx if it is not yet started or send the reload signal to the nginx’s master process
-# nginx -s reload
-
-# Get HTML site from github repo and store in /var/www/html
-#curl -o /usr/share/nginx/html/index.html https://raw.githubusercontent.com/terraform_cloud/containerfiles/index.html
-
-
+# To access a container:
+# sudo docker exec -it nano /bin/bash
