@@ -1,18 +1,4 @@
-To modify the HTML we recreate the image and upload it to the repo
-
-1) Modify your HTML file as needed on your local machine.
-
-2) Build a new Docker image with the updated HTML file using your existing Dockerfile. 
-sudo docker build -t docker_image:lab .
-
-3) Tag it
-sudo docker tag docker_image:lab nanogk/docker_image:lab
-
-4) Upload to private repo
-sudo docker push nanogk/docker_image:lab
-
-
-
+1) To modify the HTML we recreate the image and upload it to the repo
 
 Dockerfile to create image:
 # Use the official Nginx base image
@@ -21,10 +7,13 @@ FROM nginx
 COPY index.html /usr/share/nginx/html/
 
 Build and Push to docker repo:
-1) login to docker via cli: docker login
-2) Docker Build: sudo docker build -t nanogk/dockerrepo:lab .
-3) Docker push: sudo docker push nanogk/dockerrepo:lab
+1.1) login to docker via cli: docker login
+1.2) Docker Build: sudo docker build -t nanogk/dockerrepo:lab .
+1.3) Docker push: sudo docker push nanogk/dockerrepo:lab
 
+Now we can restart the container for changes to be picked up.
 
-
-x) tag the image: sudo docker tag docker_image:lab nanogk/dockerrepo:lab
+Random useful commands:
+x) Tag the image: sudo docker tag docker_image:lab nanogk/dockerrepo:lab
+x) Run the container: sudo docker run -d -p 80:80 --name nano nanogk/dockerrepo:lab
+x) To access the container: sudo docker exec -it my-container /bin/bash
