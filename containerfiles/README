@@ -11,15 +11,9 @@ Build and Push to docker repo:
 1.2) Docker Build: sudo docker build -t nanogk/dockerrepo:lab .
 1.3) Docker push: sudo docker push nanogk/dockerrepo:lab
 
-Now we can re-provision the VM so the new image gets pulled or we can restart the nginx server:
-
-2) To access the container:
-docker exec -it my-container /bin/bash
-
---failed to restart nginx
-
-
+Now we can restart the container for changes to be picked up.
 
 Random useful commands:
-x) tag the image: sudo docker tag docker_image:lab nanogk/dockerrepo:lab
-Run the container: sudo docker run -d -p 80:80 --name nano nanogk/dockerrepo:lab
+x) Tag the image: sudo docker tag docker_image:lab nanogk/dockerrepo:lab
+x) Run the container: sudo docker run -d -p 80:80 --name nano nanogk/dockerrepo:lab
+x) To access the container: sudo docker exec -it my-container /bin/bash
