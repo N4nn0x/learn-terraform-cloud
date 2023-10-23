@@ -26,6 +26,12 @@ sudo systemctl enable docker
 # Run the lab container image
 sudo docker run -d -p 80:80 --name nano nanogk/dockerrepo:lab
 
+# Run the Pumba container
+sudo docker run -d -v /var/run/docker.sock:/var/run/docker.sock gaiaadm/pumba:master 
+
+#Pumba command to stop 'nano' container... to be embedded into HTML and triggered through lambda
+#pumba kill --signal SIGTERM ^nano
+
 # To access a container:
 # sudo docker exec -it nano /bin/bash
 #
