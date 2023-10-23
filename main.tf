@@ -128,7 +128,7 @@ resource "azurerm_network_interface" "mtc-nic" {
     environment = "dev"
   }
 }
-
+/*
 resource "azurerm_linux_virtual_machine" "mtc-vm" {
   name                = "mtc-vm"
   resource_group_name = azurerm_resource_group.mtc-rg.name
@@ -172,7 +172,7 @@ tags = {
     environment = "dev"
   }
 }
-
+*/
 data "azurerm_public_ip" "mtc-ip-data" {
   name                = azurerm_public_ip.mtc-ip.name
   resource_group_name = azurerm_resource_group.mtc-rg.name
