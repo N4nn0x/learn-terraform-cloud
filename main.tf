@@ -182,4 +182,61 @@ output "public_ip_address" {
   value = "${azurerm_linux_virtual_machine.mtc-vm.name}: ${data.azurerm_public_ip.mtc-ip-data.ip_address}"
 }
 
+#################################
+# Azure Function
+resource "azurerm_storage_account" "mtc-sa" {
+  name                     = "PythonFunction-storage-account"
+  resource_group_name      = azurerm_resource_group.mtc-rg.name
+  location                 = azurerm_resource_group.mtc-rg.location
+  account_tier             = "Standard"
+  account_replication_type = "LRS"
+}
+
+resource "azurerm_service_plan" "mtc-sp" {
+  name                = "PythonFunction-service-plan"
+  resource_group_name = azurerm_resource_group.mtc-rg.name
+  location            = azurerm_resource_group.mtc-rg.location
+  os_type             = "Linux"
+  sku_name            = "Y1"
+}
+
+resource "azurerm_linux_function_app" "mtc-functionapp" {
+  name                = "PythonFunction"
+  resource_group_name = azurerm_resource_group.mtc-rg.name
+  location            = azurerm_resource_group.mtc-rg.location
+
+  storage_account_name       = azurerm_storage_account.mtc-sa.name
+  storage_account_access_key = azurerm_storage_account.mtc-sa.primary_access_key
+  service_plan_id            = azurerm_service_plan.mtc-sp.id
+
+site_config {
+  linux_fx_version = "PYTHON|3.8"  # Python version
+}
+
+app_settings = {
+    FUNCTIONS_EXTENSION_VERSION = "~3"
+    AzureWebJobsStorage        = "DefaultEndpointsProtocol=https;AccountName=${azurerm_storage_account.mtc-sa.name};AccountKey=${azurerm_storage_account.mtc-sa.primary_access_key};EndpointSuffix=core.windows.net"
+  }
+
+  app_settings = {
+    AzureWebJobsHttpRoute = "PythonFunction"  # Route to access the function via HTTP
+  }
+
+  app_settings = {
+    FUNCTIONS_WORKER_RUNTIME = "python"  # Python worker runtime
+  }
+}
+
+*/
+
+
+
+
+
+
+
+
+
+
+
 */
