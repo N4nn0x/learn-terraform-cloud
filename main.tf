@@ -216,13 +216,16 @@ site_config {
 app_settings = {
     FUNCTIONS_EXTENSION_VERSION = "~3"
     AzureWebJobsStorage        = "DefaultEndpointsProtocol=https;AccountName=${azurerm_storage_account.mtc-sa.name};AccountKey=${azurerm_storage_account.mtc-sa.primary_access_key};EndpointSuffix=core.windows.net"
+   
+    # Specify the URL of the GitHub-hosted Python script
+    WEBSITE_RUN_FROM_PACKAGE   = "https://github.com/N4nn0x/terraform_cloud/raw/main/AzureFunction/PythonScript.py"
   }
 
-  app_settings = {
+app_settings = {
     AzureWebJobsHttpRoute = "PythonFunction"  # Route to access the function via HTTP
   }
 
-  app_settings = {
+app_settings = {
     FUNCTIONS_WORKER_RUNTIME = "python"  # Python worker runtime
   }
 }
