@@ -1,3 +1,3 @@
 # To trigger the function
 
-# http://yourfunctionapp.azurewebsites.net/api/myHttpFunction
+# http://yourfunctionapp.azurewebsites.net/api/PythonFunction
