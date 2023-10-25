@@ -219,13 +219,7 @@ app_settings = {
    
     # Specify the URL of the GitHub-hosted Python script
     WEBSITE_RUN_FROM_PACKAGE   = "https://github.com/N4nn0x/terraform_cloud/raw/main/AzureFunction/PythonScript.py"
-  }
-
-app_settings = {
     AzureWebJobsHttpRoute = "PythonFunction"  # Route to access the function via HTTP
-  }
-
-app_settings = {
     FUNCTIONS_WORKER_RUNTIME = "python"  # Python worker runtime
   }
 }
