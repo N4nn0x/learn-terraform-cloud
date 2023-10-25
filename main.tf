@@ -194,7 +194,7 @@ resource "azurerm_storage_account" "mtc-sa" {
 
 
 resource "azurerm_service_plan" "mtc-sp" {
-  name                = "pythonfuncservplan"
+  name                = "NanoGKPythonFunction"
   resource_group_name = azurerm_resource_group.mtc-rg.name
   location            = "Australia East"
   os_type             = "Linux"
