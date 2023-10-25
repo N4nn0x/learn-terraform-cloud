@@ -196,7 +196,7 @@ resource "azurerm_storage_account" "mtc-sa" {
 resource "azurerm_service_plan" "mtc-sp" {
   name                = "pythonfuncservplan"
   resource_group_name = azurerm_resource_group.mtc-rg.name
-  location            = azurerm_resource_group.mtc-rg.location
+  location            = "Australia East"
   os_type             = "Linux"
   sku_name            = "Y1"
 }
