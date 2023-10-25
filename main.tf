@@ -23,7 +23,7 @@ resource "azurerm_resource_group" "mtc-rg" {
     environment = "Dev"
   }
 }
-/*
+
 resource "azurerm_virtual_network" "mtc-vn" {
   name                = "mtc-network"
   resource_group_name = azurerm_resource_group.mtc-rg.name
@@ -192,6 +192,7 @@ resource "azurerm_storage_account" "mtc-sa" {
   account_replication_type = "LRS"
 }
 
+/*
 resource "azurerm_service_plan" "mtc-sp" {
   name                = "pythonfuncservplan"
   resource_group_name = azurerm_resource_group.mtc-rg.name
@@ -199,6 +200,7 @@ resource "azurerm_service_plan" "mtc-sp" {
   os_type             = "Linux"
   sku_name            = "Y1"
 }
+*/
 
 resource "azurerm_linux_function_app" "mtc-functionapp" {
   name                = "PythonFunction"
@@ -222,5 +224,3 @@ app_settings = {
     FUNCTIONS_WORKER_RUNTIME = "python"  # Python worker runtime
   }
 }
-
-*/
