@@ -209,7 +209,7 @@ resource "azurerm_linux_function_app" "mtc-functionapp" {
 
   storage_account_name       = azurerm_storage_account.mtc-sa.name
   storage_account_access_key = azurerm_storage_account.mtc-sa.primary_access_key
-  service_plan_id            = azurerm_service_plan.mtc-sp.id
+  #service_plan_id            = azurerm_service_plan.mtc-sp.id
 
 site_config {
 }
