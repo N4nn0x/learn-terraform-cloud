@@ -210,7 +210,6 @@ resource "azurerm_linux_function_app" "mtc-functionapp" {
   service_plan_id            = azurerm_service_plan.mtc-sp.id
 
 site_config {
-  linux_fx_version = "PYTHON|3.8"  # Python version
 }
 
 app_settings = {
