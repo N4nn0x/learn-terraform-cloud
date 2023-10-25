@@ -203,7 +203,7 @@ resource "azurerm_service_plan" "mtc-sp" {
 
 
 resource "azurerm_linux_function_app" "mtc-functionapp" {
-  name                = "PythonFunction"
+  name                = "NanoGKPythonFunction"
   resource_group_name = azurerm_resource_group.mtc-rg.name
   location            = azurerm_resource_group.mtc-rg.location
 
