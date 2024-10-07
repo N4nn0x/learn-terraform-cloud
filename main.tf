@@ -181,47 +181,5 @@ data "azurerm_public_ip" "mtc-ip-data" {
 output "public_ip_address" {
   value = "${azurerm_linux_virtual_machine.mtc-vm.name}: ${data.azurerm_public_ip.mtc-ip-data.ip_address}"
 }
-
-#################################
-# Azure Function
-resource "azurerm_storage_account" "mtc-sa" {
-  name                     = "pythonfuncstoracc"
-  resource_group_name      = azurerm_resource_group.mtc-rg.name
-  location                 = "Australia Southeast"
-  account_tier             = "Standard"
-  account_replication_type = "LRS"
-}
-
-
-resource "azurerm_service_plan" "mtc-sp" {
-  name                = "NanoGKPythonFunction"
-  resource_group_name = azurerm_resource_group.mtc-rg.name
-  location            = "Australia Southeast"
-  os_type             = "Linux"
-  sku_name            = "Y1"
-}
-
-
-resource "azurerm_linux_function_app" "mtc-functionapp" {
-  name                = "NanoGKPythonFunction"
-  resource_group_name = azurerm_resource_group.mtc-rg.name
-  location            = "Australia Southeast"
-
-  storage_account_name       = azurerm_storage_account.mtc-sa.name
-  storage_account_access_key = azurerm_storage_account.mtc-sa.primary_access_key
-  service_plan_id            = azurerm_service_plan.mtc-sp.id
-
-site_config {
-}
-
-app_settings = {
-    FUNCTIONS_EXTENSION_VERSION = "~3"
-    AzureWebJobsStorage        = "DefaultEndpointsProtocol=https;AccountName=${azurerm_storage_account.mtc-sa.name};AccountKey=${azurerm_storage_account.mtc-sa.primary_access_key};EndpointSuffix=core.windows.net"
-   
-    # Specify the URL of the GitHub-hosted Python script
-    WEBSITE_RUN_FROM_PACKAGE   = "https://github.com/N4nn0x/terraform_cloud/raw/main/AzureFunction/PythonScript.py"
-    AzureWebJobsHttpRoute = "PythonFunction"  # Route to access the function via HTTP
-    FUNCTIONS_WORKER_RUNTIME = "python"  # Python worker runtime
-  }
 }
 */
