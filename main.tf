@@ -31,7 +31,7 @@ resource "azurerm_virtual_network" "mtc-vn" {
   address_space       = ["10.123.0.0/16"]
 
   tags = {
-    environment = "Brento"
+    environment = "Dev"
   }
 }
 
